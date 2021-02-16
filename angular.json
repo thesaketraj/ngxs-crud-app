@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "MM-Ticketing": {
+    "ngxs-crud-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -20,8 +20,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/MM-Ticketing",
-            "index": "home.html",
+            "outputPath": "dist/ngxs-crud-app",
+            "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "MM-Ticketing:build"
+            "browserTarget": "ngxs-crud-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "MM-Ticketing:build:production"
+              "browserTarget": "ngxs-crud-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "MM-Ticketing:build"
+            "browserTarget": "ngxs-crud-app:build"
           }
         },
         "test": {
@@ -112,7 +112,7 @@
         }
       }
     },
-    "MM-Ticketing-e2e": {
+    "ngxs-crud-app-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -121,11 +121,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "MM-Ticketing:serve"
+            "devServerTarget": "ngxs-crud-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "MM-Ticketing:serve:production"
+              "devServerTarget": "ngxs-crud-app:serve:production"
             }
           }
         },
@@ -141,5 +141,5 @@
       }
     }
   },
-  "defaultProject": "MM-Ticketing"
+  "defaultProject": "ngxs-crud-app"
 }
