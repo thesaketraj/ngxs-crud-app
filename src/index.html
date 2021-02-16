@@ -1,14 +1,161 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>NgxsCrudApp</title>
+  <title>MM Customer Query</title>
   <base href="/">
-
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css" />
+  <Script src="https://code.jquery.com/jquery-1.12.3.js" type="text/javascript"></Script>
+  <Script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" type="text/javascript"></Script>
+  <Script src="https://cdn.datatables.net/buttons/1.2.1/js/dataTables.buttons.min.js" type="text/javascript"></Script>
+  <Script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></Script>
+  <Script src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js" type="text/javascript"></Script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <h2>MM Customer Product Query</h2>
+  <br />
+  <p>Check out <a href="src/customerDetails.html" target="_blank" rel="noopener noreferrer">Customer Details</a>.</p>
+
+  <a href="https:www.google.com">Google</a>
+  <a href="/formform.component.htm">Customer Page</a>
+  <table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Query date</th>
+        <th>Ticket Ref No.</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2008/12/11</td>
+        <td>90</td>
+        <td>Timothy Mooney</td>
+        <td>Office Manager</td>
+        <td>London</td>
+        <td>₹136,200</td>
+      </tr>
+      <tr>
+        <td>2008/09/26</td>
+        <td>90</td>
+        <td>Jackson Bradshaw</td>
+        <td>Director</td>
+        <td>New York</td>
+        <td>₹645,750</td>
+      </tr>
+      <tr>
+        <td>2011/02/03</td>
+        <td>mm-90</td>
+        <td>Olivia Liang</td>
+        <td>Support Engineer</td>
+        <td>Singapore</td>
+        <td>₹234,500</td>
+      </tr>
+      <tr>
+        <td>2011/05/03</td>
+        <td>mm-901</td>
+        <td>Bruno Nash</td>
+        <td>Software Engineer</td>
+        <td>London</td>
+        <td>₹163,500</td>
+      </tr>
+      <tr>
+        <td>2009/08/19</td>
+        <td>mm-902</td>
+        <td>Sakura Yamamoto</td>
+        <td>Support Engineer</td>
+        <td>Tokyo</td>
+        <td>₹139,575</td>
+      </tr>
+      <tr>
+        <td>2013/08/11</td>
+        <td>mm-903</td>
+        <td>Thor Walton</td>
+        <td>Developer</td>
+        <td>New York</td>
+        <td>₹98,540</td>
+      </tr>
+      <tr>
+        <td>2009/07/07</td>
+        <td>mm-904</td>
+        <td>Finn Camacho</td>
+        <td>Support Engineer</td>
+        <td>San Francisco</td>
+        <td>₹87,500</td>
+      </tr>
+      <tr>
+        <td>2012/04/09</td>
+        <td>mm-905</td>
+        <td>Serge Baldwin</td>
+        <td>Data Coordinator</td>
+        <td>Singapore</td>
+        <td>₹138,575</td>
+      </tr>
+      <tr>
+        <td>2010/01/04</td>
+        <td>mm-906</td>
+        <td>Zenaida Frank</td>
+        <td>Software Engineer</td>
+        <td>New York</td>
+        <td>₹125,250</td>
+      </tr>
+      <tr>
+        <td>2012/06/01</td>
+        <td>mm-907</td>
+        <td>Zorita Serrano</td>
+        <td>Software Engineer</td>
+        <td>San Francisco</td>
+        <td>₹115,000</td>
+      </tr>
+
+    </tbody>
+  </table>
+  <script>
+    $(document).ready(function () {
+      $(document).ready(function () {
+        $('table').DataTable({
+          dom: 'Blfrtip',
+          buttons: [{
+            text: 'Export To Excel',
+            extend: 'excelHtml5',
+            exportOptions: {
+              modifier: {
+                selected: true
+              },
+              columns: [0, 1, 2, 3,6],
+              format: {
+                header: function (data, columnIdx) {
+                  return data;
+                },
+                body: function (data, column, row) {
+                  // Strip $ from salary column to make it numeric
+                  debugger;
+                  return column === 6 ? "" : data;
+                }
+              }
+            },
+            footer: false,
+            customize: function (xlsx) {
+              var sheet = xlsx.xl.worksheets['sheet1.xml'];
+              //$('c[r=A1] t', sheet).text( 'Custom text' );
+              //$('row c[r^="C"]', sheet).attr('s', '2');
+            }
+          }]
+        });
+      });
+    });
+  </script>
 </head>
+
+
 <body>
   <app-root></app-root>
 </body>
+
 </html>
